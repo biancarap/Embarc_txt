@@ -1,79 +1,128 @@
 Data: 14/03/2017
 
-Para todas as questıes, compile-as com o gcc e execute-as via terminal.
+Para todas as quest√µes, compile-as com o gcc e execute-as via terminal.
 
-1. Crie um "Ol· mundo!" em C.
+1. Crie um "Ol√° mundo!" em C.
 
-2. Crie um cÛdigo em C que pergunta ao usu·rio o seu nome, e imprime no terminal "Ola " e o nome do usu·rio. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_usuario_1':
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+
+int main(){
+
+printf("Ola, Mundo!\n");
+
+return 0;}
+
+
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc irra.c -o kkk
+bianca@bianca-Inspiron-5458:~/Documentos$ ./kkk
+Ola, Mundo!bianca@bianca-Inspiron-5458:~/Documentos$ 
+
+
+
+2. Crie um c√≥digo em C que pergunta ao usu√°rio o seu nome, e imprime no terminal "Ola " e o nome do usu√°rio. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_usuario_1':
 	$ ./ola_usuario_1
 	$ Digite o seu nome: Eu
 	$ Ola Eu
 	$
+	#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
-3. Apresente os comportamentos do cÛdigo anterior nos seguintes casos:
-	(a) Se o usu·rio insere mais de um nome.
-		$ ./ola_usuario_1 Eu Mesmo
-	(b) Se o usu·rio insere mais de um nome entre parÍnteses. Por exemplo:
-		$ ./ola_usuario_1 "Eu Mesmo"
-	(c) Se È usado um pipe. Por exemplo:
-		$ echo Eu | ./ola_usuario_1
-	(d) Se È usado um pipe com mais de um nome. Por exemplo:
+
+int main(){
+char nome[100];
+printf("QUal seu nome?\n");
+scanf("%s", nome);
+printf("Ola, %s", nome);
+
+
+return 0;}
+	
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc q2.c -o iii
+bianca@bianca-Inspiron-5458:~/Documentos$ ./iii
+QUal seu nome?
+bianca
+Ola, biancabianca@bianca-Inspiron-5458:~/Documentos$ 
+
+
+
+3.(a) Nada acontece, o programa l√™ so a primeira string
+
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc q2.c -o jjj
+bianca@bianca-Inspiron-5458:~/Documentos$ ./jjj
+QUal seu nome?
+bianca teixeira
+Ola, bianca
+bianca@bianca-Inspiron-5458:~/Documentos$ 
+
+(b)	
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc q2.c -o jjj
+bianca@bianca-Inspiron-5458:~/Documentos$ ./jjj
+QUal seu nome?
+bianca teixeira
+Ola, bianca
+bianca@bianca-Inspiron-5458:~/Documentos$ 
+
+	(c) L√™	echo
+	(d) l√™	echo
+	(e) Se √© usado um pipe com mais de um nome entre par√™nteses. Por exemplo:
 		$ echo Eu Mesmo | ./ola_usuario_1
-	(e) Se È usado um pipe com mais de um nome entre parÍnteses. Por exemplo:
-		$ echo Eu Mesmo | ./ola_usuario_1
-	(f) Se È usado o redirecionamento de arquivo. Por exemplo:
+	(f) Se √© usado o redirecionamento de arquivo. Por exemplo:
 		$ echo Ola mundo cruel! > ola.txt
 		$ ./ola_usuario_1 < ola.txt
 
-4. Crie um cÛdigo em C que recebe o nome do usu·rio como um argumento de entrada (usando as vari·veis argc e *argv[]), e imprime no terminal "Ola " e o nome do usu·rio. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_usuario_2':
+4. Crie um c√≥digo em C que recebe o nome do usu√°rio como um argumento de entrada (usando as vari√°veis argc e *argv[]), e imprime no terminal "Ola " e o nome do usu√°rio. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_usuario_2':
 	$ ./ola_usuario_2 Eu
 	$ Ola Eu
 	$
 
-5. Apresente os comportamentos do cÛdigo anterior nos seguintes casos:
-	(a) Se o usu·rio insere mais de um nome.
+5. Apresente os comportamentos do c√≥digo anterior nos seguintes casos:
+	(a) Se o usu√°rio insere mais de um nome.
 		$ ./ola_usuario_2 Eu Mesmo
-	(b) Se o usu·rio insere mais de um nome entre parÍnteses. Por exemplo:
+	(b) Se o usu√°rio insere mais de um nome entre par√™nteses. Por exemplo:
 		$ ./ola_usuario_2 "Eu Mesmo"
-	(c) Se È usado um pipe. Por exemplo:
+	(c) Se √© usado um pipe. Por exemplo:
 		$ echo Eu | ./ola_usuario_2
-	(d) Se È usado um pipe com mais de um nome. Por exemplo:
+	(d) Se √© usado um pipe com mais de um nome. Por exemplo:
 		$ echo Eu Mesmo | ./ola_usuario_2
-	(e) Se È usado um pipe com mais de um nome entre parÍnteses. Por exemplo:
+	(e) Se √© usado um pipe com mais de um nome entre par√™nteses. Por exemplo:
 		$ echo Eu Mesmo | ./ola_usuario_2
-	(f) Se È usado o redirecionamento de arquivo. Por exemplo:
+	(f) Se √© usado o redirecionamento de arquivo. Por exemplo:
 		$ echo Ola mundo cruel! > ola.txt
 		$ ./ola_usuario_2 < ola.txt
 
-6. Crie um cÛdigo em C que faz o mesmo que o cÛdigo da quest„o 4, e em seguida imprime no terminal quantos valores de entrada foram fornecidos pelo usu·rio. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_usuario_3':
+6. Crie um c√≥digo em C que faz o mesmo que o c√≥digo da quest√£o 4, e em seguida imprime no terminal quantos valores de entrada foram fornecidos pelo usu√°rio. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_usuario_3':
 	$ ./ola_usuario_3 Eu
 	$ Ola Eu
 	$ Numero de entradas = 2
 	$
 
-7. Crie um cÛdigo em C que imprime todos os argumentos de entrada fornecidos pelo usu·rio. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_argumentos':
+7. Crie um c√≥digo em C que imprime todos os argumentos de entrada fornecidos pelo usu√°rio. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_argumentos':
 	$ ./ola_argumentos Eu Mesmo e Minha Pessoa
 	$ Argumentos: Eu Mesmo e Minha Pessoa
 	$
 
-8. Crie uma funÁ„o que retorna a quantidade de caracteres em uma string, usando o seguinte protÛtipo:
+8. Crie uma fun√ß√£o que retorna a quantidade de caracteres em uma string, usando o seguinte prot√≥tipo:
 
 	int Num_Caracs(char *string);
 
-Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o protÛtipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
+Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o prot√≥tipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
 
-9. Re-utilize o objeto criado na quest„o 8 para criar um cÛdigo que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_num_caracs_1':
+9. Re-utilize o objeto criado na quest√£o 8 para criar um c√≥digo que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_num_caracs_1':
 	$ ./ola_num_caracs_1 Eu Mesmo
 	$ Argumento: ./ola_num_caracs_1 / Numero de caracteres: 18
 	$ Argumento: Eu / Numero de caracteres: 2
 	$ Argumento: Mesmo / Numero de caracteres: 5
 	$
 
-10. Crie um Makefile para a quest„o anterior.
+10. Crie um Makefile para a quest√£o anterior.
 
-11. Re-utilize o objeto criado na quest„o 8 para criar um cÛdigo que imprime o total de caracteres nos argumentos de entrada. Por exemplo, considerando que o cÛdigo criado recebeu o nome de 'ola_num_caracs_2':
+11. Re-utilize o objeto criado na quest√£o 8 para criar um c√≥digo que imprime o total de caracteres nos argumentos de entrada. Por exemplo, considerando que o c√≥digo criado recebeu o nome de 'ola_num_caracs_2':
 	$ ./ola_num_caracs_2 Eu Mesmo
 	$ Total de caracteres de entrada: 25
 	$
 
-12. Crie um Makefile para a quest„o anterior.
+12. Crie um Makefile para a quest√£o anterior.
