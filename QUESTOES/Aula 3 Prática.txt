@@ -15,11 +15,11 @@ return 0;
 #include <string.h>
 
 int main(){
-char nome[20];
+char nome[100];
 	printf("Digite o seu nome:\n");
 	scanf ("%s", nome);
 
-	printf ("Ola, %s.", nome);
+	printf ("Ola, %s", nome);
 
 return 0;
 }
@@ -29,34 +29,34 @@ Para compilação do arquivo, os seguintes comandos foram usados:
 
 $ pwd
 $ cd Documentos
-$ gcc questao_02.c -o questao2
+$ gcc questao2.c -o questao2
 $ ./questao2
 
 
 No terminal:
 Digite o seu nome: 
-Joyce
-Ola, Joyce.
+hsuahsuahusahusa
+Ola, hsuahsuahusahusa.
 
 3. Apresente os comportamentos do código anterior nos seguintes casos:
 (a) Se o usuário insere mais de um nome.
-		Digite o seu nome: Joyce Santos
-		Ola, Joyce.
+		Digite o seu nome: Bianca Teixeira
+		Ola, Bianca.
 	(b) Se o usuário insere mais de um nome entre parênteses. 
 		Digite o seu nome:
-		'Ola, "Joyce.
+		'Ola, "Bianca.
 	(c) Se é usado um pipe. Por exemplo:
-		$ echo Joyce | ./questao2
+		$ echo Bianca | ./questao2
 		Digite o seu nome:
-		Ola, Joyce.
+		Ola, Bianca.
 	(d) Se é usado um pipe com mais de um nome. Por exemplo:
-		$ echo Joyce Santos | ./questao2
+		$ echo Bianca Teixeira | ./questao2
 		Digite o seu nome: 
-		Ola, Joyce.
+		Ola, Bianca.
 	(e) Se é usado um pipe com mais de um nome entre parênteses. Por exemplo:
-		$ echo "Joyce Santos" | ./questao2
+		$ echo "Bianca Teixeira" | ./questao2
 		Digite o seu nome:
-		Ola, Joyce.
+		Ola, Bianca.
 	(f) Se é usado o redirecionamento de arquivo. Por exemplo:
 
 $ echo Ola mundo cruel! > ola.txt
@@ -87,28 +87,28 @@ $ gcc questao_04.c -o questao4
 $ ./questao4
 
 No terminal:
-Digite o seu nome: Joyce
-Ola, Joyce
+Digite o seu nome: Bianca
+Ola, Bianca
 
 5. Apresente os comportamentos do código anterior nos seguintes casos:
 	(a) Se o usuário insere mais de um nome.
-		Digite o seu nome: Joyce Santos
-		Ola, Joyce.
+		Digite o seu nome: Bianca Teixeira
+		Ola, Bianca.
 	(b) Se o usuário insere mais de um nome entre parênteses. Por exemplo:
 		Digite o seu nome: "Joyce Santos"
-		Ola, "Joyce.
+		Ola, "Bianca.
 	(c) Se é usado um pipe. Por exemplo:
-		$ echo Joyce | ./questao5
+		$ echo Bianca | ./questao5
 		Digite o seu nome:
-		Ola, Joyce.
+		Ola, Bianca.
 	(d) Se é usado um pipe com mais de um nome. Por exemplo:
-		$ echo Joyce Santos | ./questao5
+		$ echo Bianca Teixeira | ./questao5
 		Digite o seu nome:
-		Ola, Joyce.
+		Ola, Bianca.
 	(e) Se é usado um pipe com mais de um nome entre parênteses. Por exemplo:
-		$ echo "Joyce Santos" | ./questao5
-		Digite o seu nome: Joyce
-		Ola, Joyce.
+		$ echo "Bianca Teixeira" | ./questao5
+		Digite o seu nome: Bianca
+		Ola, Bianca.
 	(f) Se é usado o redirecionamento de arquivo. Por exemplo:
 		$ echo Ola mundo cruel! > ola.txt
 		$ ./questao4 < ola.txt
@@ -132,11 +132,11 @@ return 0;
 
 
 No terminal:
-$ ./questao6 Joyce Santos
+$ ./questao6 ola bianca como vc esta
 
 Na tela:
-Numero de entradas: 3
-Ola, Santos
+Numero de entradas: 6
+Ola, esta
 
 7. Crie um código em C que imprime todos os argumentos de entrada fornecidos pelo usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_argumentos':
 
@@ -158,8 +158,27 @@ return 0;
 }
 
 No terminal:
-$ ./questao_07 oi professor
-Argumentos: C:\Users\Joyce\Desktop\SistemasEmbarcados\C\Aula3\questao_07.exe  oi professor
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char *argv[]){
+
+int i;
+
+printf ("Argumentos:");
+
+for (i = 0; i <= (argc - 1); i++){
+printf (" %s ", argv[i]);
+
+}
+
+return 0;
+}
+
+No terminal:
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc argumentos.c -o argumentos
+bianca@bianca-Inspiron-5458:~/Documentos$ ./argumentos ola mundo
+Argumentos: ./argumentos  ola  mundo 
 
 8. Crie uma função que retorna a quantidade de caracteres em uma string, usando o seguinte protótipo: *
 
@@ -197,11 +216,12 @@ for (i = 0; i < argc; i++){
 	return 0;
 }
 Para compilar: 
-$ gcc num_caracs2.c num_caracs.o
-$ ./a.out arroz
-No terminal:
-Argumento: C:\Users\Joyce\Desktop\SistemasEmbarcados\C\Aula3\a.exe / Numero de caracteres: 55
-Argumento: arroz / Numero de caracteres: 5
+bianca@bianca-Inspiron-5458:~/Documentos$ ./a.out iera iera iera
+Argumentos:./a.out, n de caracteres:7
+Argumentos:iera, n de caracteres:4
+Argumentos:iera, n de caracteres:4
+Argumentos:iera, n de caracteres:4
+
 
 10. Crie um Makefile para a questão anterior.
 
@@ -218,16 +238,17 @@ clean:
 Para compilar:
 	$ make
 	$ make clean
-	$ ./main_8 Joyce Santos
+	$ ./main_8 ./num_caracs_2 irerieirei ireirierie hahahha hhehehe
 	
 No terminal:
 
-$ Argumentos: ./main_8
-$ Numero de caracteres: 8
-$ Argumentos: Joyce
-$ Numero de caracteres: 5
-$ Argumentos: Santos
-$ Numero de caracteres: 5
+bianca@bianca-Inspiron-5458:~/Documentos$ ./num_caracs_2 irerieirei ireirierie hahahha hhehehe
+Argumentos:./num_caracs_2, n de caracteres:14
+Argumentos:irerieirei, n de caracteres:10
+Argumentos:ireirierie, n de caracteres:10
+Argumentos:hahahha, n de caracteres:7
+Argumentos:hhehehe, n de caracteres:7
+
 	
 11. Re-utilize o objeto criado na questão 8 para criar um código que imprime o total de caracteres nos argumentos de entrada. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_2':
 
@@ -248,12 +269,10 @@ for (i = 0; i < argc; i++){
 }
 
 Para compilar: 
-$ gcc -c num_caracs.c
-$ gcc questao_11.c num_caracs.o
-$ ./a.out Joyce
-
-No terminal:
-Numero de caracteres: 12
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc -c num_caracs.c
+bianca@bianca-Inspiron-5458:~/Documentos$ gcc ola_num_caracs.c num_caracs.o
+bianca@bianca-Inspiron-5458:~/Documentos$ ./a.out bianca teixeira
+Numero de caracteres: 21
 
 
 12. Crie um Makefile para a questão anterior.
@@ -268,9 +287,12 @@ clean:
 	rm *.o
 	
 Para compilar:
-$ make
-$ make clean
-$ ./questao_11 Joyce Santos
+bianca@bianca-Inspiron-5458:~/Documentos/makenovo$ gcc -c num_caracs.c
+bianca@bianca-Inspiron-5458:~/Documentos/makenovo$ gcc ola_num_caracs.c num_caracs.o
+bianca@bianca-Inspiron-5458:~/Documentos/makenovo$ make
+gcc ola_num_caracs.o num_caracs.o -o ola_num_caracs
+bianca@bianca-Inspiron-5458:~/Documentos/makenovo$ make clean
+rm *.o
+bianca@bianca-Inspiron-5458:~/Documentos/makenovo$ ./ola_num_caracs bianca teixeira
+Numero de caracteres: 30
 
-No terminal:
-Numero de caracteres: 12
