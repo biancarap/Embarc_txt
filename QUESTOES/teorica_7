@@ -1,16 +1,24 @@
 Data: 30/03/2017
 
 1. Quantos pipes serão criados após as linhas de código a seguir? Por quê?
-	(a) int pid;
-		int	fd[2];
-		pipe(fd);
-		pid = fork();
-	(b) int pid;
-		int	fd[2];
-		pid = fork();
-		pipe(fd);
-
+	(a) int pid; /* id*/
+		int	fd[2]; /*descritores de arquivos*/
+		pipe(fd); /*criacao do pipe*/
+		pid = fork(); /*criacao do processo filho*/
+    
+    R: 2 pipes - um para o processo pai e outro para processo filho, porque a primitiva fork duplica dos descritores de arquivo.
+    
+	(b) int pid; /*id*/
+		int	fd[2]; /*descritores de arquivos*/
+		pid = fork(); /*criacao do processo filho*/
+		pipe(fd); /*criacao do pipe*/
+    
+    R: Somente 1 pipe, porque a copia do processo pai é feita antes da criacão do pipe, então pipe não é duplicado.
+    
 2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
+SIGHUP - envia ao processo um sinal quando o terminal é fechado.
+SIGQUIT - sinal emitido a partir do teclado.
+SIGSTOP - parar um processo.
 
 3. Considere o código a seguir:
 
@@ -33,5 +41,3 @@ Data: 30/03/2017
 	17. 	while(1);
 	18. 	return 0;
 	19. }
-
-Sabendo que a função alarm() tem como entrada a quantidade de segundos para terminar a contagem, quão precisos são os alarmes criados neste código? De onde vem a imprecisão? Este é um método confiável para desenvolver aplicações em tempo real?
