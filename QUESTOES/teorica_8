@@ -5,8 +5,12 @@ ata: 30/03/2017
 	
 
 	3. Quais são as vantagens e desvantagens em utilizar:
-		(a) fork?
-		(b) threads?
+		(a) fork? Vantagens: Com o uso de forks não há corrupção de dados, pois cada programa filho (cópia, ppid) ocupa um 
+		espaço próprio de memória.
+		Desvantagens: Ocupa mais espaço de memória.
+		(b) threads? Vantagens: Com as threads é possível que o programa realize duas atividades "simultaneamente",
+		estas não são realizadas ao mesmo tempo, o threads trabalha operando cada atividade de tempo em tempos pré-determinados
+		Desvantagens: Utilizam o mesmo espaço de memória, sendo mais suscetível à corrupção de dados
 	
 
 	2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
@@ -23,7 +27,8 @@ ata: 30/03/2017
 				pthread_join(t2, NULL);
 				return 0;
 			}
-	
+	São criadas duas threads (t1 e t2),  e elas coexistirão pelo fato de da função join ter sido executada posteriormente, 
+	fazendo assim que elas coexistam até que uma seja acabada
 
 		(b)
 			void* funcao_thread_1(void *arg);
@@ -38,11 +43,8 @@ ata: 30/03/2017
 				pthread_join(t2, NULL);
 				return 0;
 			}
-	
+	São criadas duas threads (t1 e t2), e las não coexistirão, pois a função join encerra cada uma logo após a sua criação.
 
 	3. Apresente as características e utilidades das seguintes funções:
 		(a) pthread_setcancelstate()
 		(b) pthread_setcanceltype()
-
- 
-Os programas são e
