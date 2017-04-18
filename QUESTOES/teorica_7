@@ -19,5 +19,8 @@ Data: 30/03/2017
 SIGHUP - envia ao processo um sinal quando o terminal é fechado.
 SIGQUIT - sinal emitido a partir do teclado.
 SIGSTOP - parar um processo.
+SIGKILL - não pode ser interceptado, nem ignorado Arma absoluta pra matar os processos
+SIGTERM - para uma morte de processos mais suave, e de maneira NORMAL
+
 
 
