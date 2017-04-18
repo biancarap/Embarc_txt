@@ -6,14 +6,14 @@ Data: 30/03/2017
 		pipe(fd); /*criacao do pipe*/
 		pid = fork(); /*criacao do processo filho*/
     
-    R: 2 pipes - um para o processo pai e outro para processo filho, porque a primitiva fork duplica dos descritores de arquivo.
+    R: nesse programa o pipe foi criado antes do fork, ou seja, nao foi " dobrado", entao so um pipe sera criado.
     
 	(b) int pid; /*id*/
 		int	fd[2]; /*descritores de arquivos*/
 		pid = fork(); /*criacao do processo filho*/
 		pipe(fd); /*criacao do pipe*/
     
-    R: Somente 1 pipe, porque a copia do processo pai é feita antes da criacão do pipe, então pipe não é duplicado.
+    R: nesse programa o pipe eh criado posteriormente ao fork, entao, ele devera suprir pai e filho, sendo criados 2.
     
 2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
 SIGHUP - envia ao processo um sinal quando o terminal é fechado.
